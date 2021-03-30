@@ -3,7 +3,7 @@ import React from 'react';
 import { Container, CurrentHealth, HealthWrapper, LostHealth, Score } from './HealthBar.styles';
 import { IHealthBarProps } from './HealthBar.types';
 
-const Bar: React.FC<IHealthBarProps> = ({ current, lost }: IHealthBarProps) => (
+const HealthBar: React.FC<IHealthBarProps> = ({ current, lost }: IHealthBarProps) => (
   <>
     <Container data-testid="Bar">
       {lost && (
@@ -36,4 +36,4 @@ const Bar: React.FC<IHealthBarProps> = ({ current, lost }: IHealthBarProps) => (
   </>
 );
 
-export default Bar;
+export default HealthBar;

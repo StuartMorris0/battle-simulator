@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { couldStartTrivia, findAncestor } from 'typescript';
-
 import blank from 'assets/icons/dice/blank.svg';
 import five from 'assets/icons/dice/five.svg';
 import four from 'assets/icons/dice/four.svg';

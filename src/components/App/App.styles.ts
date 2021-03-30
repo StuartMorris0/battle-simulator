@@ -2,20 +2,28 @@ import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 export const StyledWrapper = styled.div`
-  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const GameWrapper = styled.div`
   display: flex;
-  height: 80%;
+  flex-direction: column;
+
+  @media (min-width: 769px) {
+    flex-direction: row;
+  }
 `;
 
 export const ButtonWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 8px 20px;
 
   & button {
+    width: 100%;
     background: #66bb6a;
     color: white;
     padding: 20px 40px;
@@ -25,6 +33,10 @@ export const ButtonWrapper = styled.div`
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: -1px;
+
+    @media (min-width: 760px) {
+      width: auto;
+    }
 
     &:hover {
       background-color: #3b903f;

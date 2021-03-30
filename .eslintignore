@@ -9,3 +9,4 @@ e2e/puppeteer_standalone.js
 jest-puppeteer.config.js
 __mocks__/*
 commitlint.config.js
+coverage/*

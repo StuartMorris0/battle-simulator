@@ -4,8 +4,13 @@ import styled, { css } from 'styled-components';
 export const RollMessageWrapper = styled(motion.div)`
   display: flex;
   align-items: center;
-  width: 400px;
   justify-content: center;
+  height: 100px;
+  flex: 0.8;
+
+  @media (min-width: 769px) {
+    height: auto;
+  }
 `;
 
 export const RollMessageSpan = styled(motion.span)<{ playerHasWon: boolean; opponentWon: boolean }>`
@@ -14,7 +19,8 @@ export const RollMessageSpan = styled(motion.span)<{ playerHasWon: boolean; oppo
   text-transform: uppercase;
   font-weight: bold;
   background: #505050;
-  padding: 30px;
+  padding: 12px;
+  margin: 8px 0px;
   text-align: center;
   box-shadow: none;
 

@@ -14,19 +14,20 @@ export const GamePlayerWrapper = styled(motion.div)<IGamePlayerProps>`
   ${({ display }: IGamePlayerProps) =>
     display === 'rtl' &&
     css`
-      flex-direction: row-reverse;
+      @media (min-width: 760px) {
+        flex-direction: row-reverse;
+      }
     `};
 `;
-
-export const GamePlayerInfo = styled.div``;
 
 export const DiceHolder = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100px;
   justify-content: center;
   align-items: center;
   background: white;
-  height: 60%;
   border-radius: 4px;
+  padding: 12px;
+  height: 120px;
+  width: 80px;
 `;

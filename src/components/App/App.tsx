@@ -7,6 +7,8 @@ import { useAppDispatch, useAppSelector } from 'hooks/storeHooks';
 
 import { ButtonWrapper, GameWrapper, StyledWrapper, TitleWrapper } from './App.styles';
 
+const ROLLTIME = 1000;
+
 const App: React.FC = () => {
   const game = useAppSelector((state) => state.game);
   const dispatch = useAppDispatch();
@@ -24,7 +26,7 @@ const App: React.FC = () => {
       window.setTimeout(() => {
         dispatch(handleAttack());
         dispatch(checkGameStatus());
-      }, 1000);
+      }, ROLLTIME);
     }
   }, [game.status, dispatch]);
 

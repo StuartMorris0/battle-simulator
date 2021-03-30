@@ -5,9 +5,13 @@ import { IHealthBarProps } from './HealthBar.types';
 
 export const Container = styled.div`
   display: flex;
-  height: 80%;
+  height: 120px;
   flex-direction: column;
   position: relative;
+
+  @media (min-width: 769px) {
+    height: 260px;
+  }
 `;
 
 export const LostHealth = styled(motion.div)`
