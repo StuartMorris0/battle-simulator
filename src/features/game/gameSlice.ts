@@ -2,37 +2,32 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import type { AppThunk } from 'store/';
 
-interface GameState {
-  player1: Player;
-  opponent: Player;
-  status: 'waiting' | 'rolling' | 'attacking' | 'complete';
-  rollMessage: string | undefined;
-}
+const STARTING_HEALTH = 100;
 
 const rollDice = () => (Math.round(Math.random() * 100) % 6) + 1;
 
 const initialState: GameState = {
   player1: {
     playerName: 'PLAYER',
-    dice1: 1,
-    dice2: 1,
+    dice1: 0,
+    dice2: 0,
     health: {
-      current: 100,
+      current: STARTING_HEALTH,
       lost: undefined,
     },
     hasWon: false,
   },
   opponent: {
     playerName: 'MONSTER',
-    dice1: 1,
-    dice2: 1,
+    dice1: 0,
+    dice2: 0,
     health: {
-      current: 100,
+      current: STARTING_HEALTH,
       lost: undefined,
     },
     hasWon: false,
   },
-  rollMessage: undefined,
+  rollMessage: 'Tap ATTACK to start...',
   status: 'waiting',
 };
 
@@ -75,7 +70,7 @@ export const gameSlice = createSlice({
         const roundScore = opponentTotal - playerTotal;
         state.player1.health.current -= roundScore;
         state.player1.health.lost = roundScore;
-        state.rollMessage = `Oponent hit for ${roundScore}`;
+        state.rollMessage = `Monster hit for ${roundScore}`;
       }
     },
     checkGameStatus: (state) => {
@@ -91,12 +86,18 @@ export const gameSlice = createSlice({
         state.status = 'waiting';
       }
     },
+    reset(state) {
+      Object.assign(state, initialState);
+    },
   },
 });
 
-const { makeRoll, handleAttack, checkGameStatus } = gameSlice.actions;
+// Exporting the individual actions, used to delay the time between rolling and handling attack and game status
+// Alternatively could call makeQuickRoll which will dispatch each action in order so no role time.
 
-export const makeRollAsync = (): AppThunk => (dispatch) => {
+export const { makeRoll, handleAttack, checkGameStatus, reset } = gameSlice.actions;
+
+export const makeQuickRoll = (): AppThunk => (dispatch) => {
   dispatch(makeRoll());
   dispatch(handleAttack());
   dispatch(checkGameStatus());

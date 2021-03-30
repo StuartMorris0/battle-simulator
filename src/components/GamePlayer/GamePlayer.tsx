@@ -2,8 +2,9 @@ import React from 'react';
 
 import Dice from 'components/Dice';
 import HealthBar from 'components/HealthBar';
+import PlayerAvatar from 'components/PlayerAvatar';
 
-import { GamePlayerWrapper } from './GamePlayer.styles';
+import { DiceHolder, GamePlayerWrapper } from './GamePlayer.styles';
 import { IGamePlayerProps } from './GamePlayer.types';
 
 const GamePlayer: React.FC<IGamePlayerProps> = ({ player, ...rest }: IGamePlayerProps) => {
@@ -17,11 +18,12 @@ const GamePlayer: React.FC<IGamePlayerProps> = ({ player, ...rest }: IGamePlayer
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
     <GamePlayerWrapper player={player} {...rest} data-testid="GamePlayer" animate={{ scale: 1 }}>
-      <div>name: {playerName}</div>
-      <Dice value={dice1} />
-      <Dice value={dice2} />
+      <PlayerAvatar name={playerName} hasWon={hasWon} />
+      <DiceHolder>
+        <Dice value={dice1} />
+        <Dice value={dice2} />
+      </DiceHolder>
       <HealthBar current={current} lost={lost} />
-      <div>hasWon: {hasWon ? 'true' : 'false'}</div>
     </GamePlayerWrapper>
   );
 };

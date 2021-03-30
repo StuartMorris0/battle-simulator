@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 
 import { IGamePlayerProps } from './GamePlayer.types';
 
-const GamePlayerWrapper = styled(motion.div)<IGamePlayerProps>`
+export const GamePlayerWrapper = styled(motion.div)<IGamePlayerProps>`
   display: flex;
   justify-content: space-evenly;
   flex-grow: 0.5;
@@ -18,6 +18,15 @@ const GamePlayerWrapper = styled(motion.div)<IGamePlayerProps>`
     `};
 `;
 
-const GamePlayerInfo = styled.div``;
+export const GamePlayerInfo = styled.div``;
 
-export { GamePlayerWrapper, GamePlayerInfo };
+export const DiceHolder = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  height: 60%;
+  border-radius: 4px;
+`;

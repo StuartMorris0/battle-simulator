@@ -10,3 +10,10 @@ declare interface Player {
   health: PlayerHealth;
   hasWon: boolean;
 }
+
+interface GameState {
+  player1: Player;
+  opponent: Player;
+  status: 'waiting' | 'rolling' | 'attacking' | 'complete';
+  rollMessage: string;
+}

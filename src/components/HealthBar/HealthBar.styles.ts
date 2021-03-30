@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 import { IHealthBarProps } from './HealthBar.types';
@@ -6,12 +7,19 @@ export const Container = styled.div`
   display: flex;
   height: 80%;
   flex-direction: column;
+  position: relative;
 `;
 
-export const LostHealth = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+export const LostHealth = styled(motion.div)`
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  background: white;
+  border-radius: 26px;
+  padding: 10px;
+  border: 1px solid #f1f1f1;
+  font-size: 20px;
+  font-weight: bold;
 `;
 
 export const Score = styled.div`
@@ -19,6 +27,8 @@ export const Score = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
+  font-weight: bold;
 `;
 
 export const HealthWrapper = styled.div`

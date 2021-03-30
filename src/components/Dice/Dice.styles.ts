@@ -1,11 +1,20 @@
 import { motion } from 'framer-motion';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-import { IDiceProps } from './Dice.types';
+export const RollingDice = styled(motion.div)`
+  margin: 4px;
+  width: 50px;
+  height: 50px;
+  background: black;
+  border-radius: 10px;
+  overflow: hidden;
+  & img {
+    width: 50px;
+    height: 50px;
+  }
+`;
 
-export const RollingDice = styled.div``;
-
-export const Rolled = styled.div`
+export const Rolled = styled(motion.div)`
   display: block;
 
   & img {

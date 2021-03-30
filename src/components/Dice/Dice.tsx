@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { couldStartTrivia, findAncestor } from 'typescript';
+
+import blank from 'assets/icons/dice/blank.svg';
 import five from 'assets/icons/dice/five.svg';
 import four from 'assets/icons/dice/four.svg';
 import one from 'assets/icons/dice/one.svg';
@@ -12,27 +15,22 @@ import { Rolled, RollingDice } from './Dice.styles';
 import { IDiceProps } from './Dice.types';
 
 const getImageSource = (value: number) => {
-  let imageSrc = '';
   switch (value) {
     case 1:
       return one;
     case 2:
-      imageSrc = two;
-      break;
+      return two;
     case 3:
-      imageSrc = three;
-      break;
+      return three;
     case 4:
-      imageSrc = four;
-      break;
+      return four;
     case 5:
-      imageSrc = five;
-      break;
+      return five;
+    case 6:
+      return six;
     default:
-      imageSrc = six;
-      break;
+      return blank;
   }
-  return imageSrc;
 };
 
 const Dice: React.FC<IDiceProps> = ({ value }: IDiceProps) => {
@@ -40,14 +38,20 @@ const Dice: React.FC<IDiceProps> = ({ value }: IDiceProps) => {
   const isRolling = gameStatus === 'rolling';
 
   if (isRolling) {
-    return <RollingDice />;
+    return (
+      <RollingDice
+        animate={{ scale: [1, 0.75, 0.5, 0.5, 1], rotate: [0, 0, 270, 270, 0], borderRadius: ['20%', '20%', '50%', '50%', '20%'] }}
+        transition={{ repeat: Infinity, ease: 'linear', duration: 1.5 }}
+      >
+        <img src={blank} alt="Rolling..." />
+      </RollingDice>
+    );
   }
 
-  if (value) {
+  if (value !== undefined) {
     const imageSrc = getImageSource(value);
-    console.log(`imageSrc : ${imageSrc}`);
     return (
-      <Rolled>
+      <Rolled animate={{}} whileHover={{ scale: 1.2 }}>
         <img src={imageSrc} alt="One" />
       </Rolled>
     );

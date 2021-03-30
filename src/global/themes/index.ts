@@ -1,7 +1,7 @@
 const theme = {
   name: 'DefaultTheme',
-  backgroundColor: '#f1f1f1',
-  textColor: 'black',
+  backgroundColor: '#263238',
+  textColor: 'white',
   primaryColor: 'yellow',
 };
 export default theme;
