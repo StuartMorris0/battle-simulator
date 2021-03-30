@@ -1,7 +1,7 @@
 import { combineReducers } from '@reduxjs/toolkit';
 
-import counterReducer from 'features/counter/counterSlice';
+import gameReducer from 'features/game/gameSlice';
 
-const rootReducer = combineReducers({ counter: counterReducer });
+const rootReducer = combineReducers({ game: gameReducer });
 
 export default rootReducer;

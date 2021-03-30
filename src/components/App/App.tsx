@@ -1,32 +1,28 @@
 import React from 'react';
 
-import logo from 'assets/images/logo.svg';
+import GamePlayer from 'components/GamePlayer';
+import { makeRollAsync } from 'features/game/gameSlice';
+import { useAppDispatch, useAppSelector } from 'hooks/storeHooks';
 
-import { StyledImage, StyledWrapper } from './App.styles';
+import { StyledWrapper } from './App.styles';
 
 const App: React.FC = () => {
-  const spinTransitionFineTuned = {
-    rotate: {
-      repeat: Infinity,
-      ease: 'linear',
-      duration: 1,
-    },
-    scale: {
-      repeatType: 'loop',
-      duration: 2,
-    },
+  const game = useAppSelector((state) => state.game);
+  const dispatch = useAppDispatch();
+
+  const handleOnClick = () => {
+    dispatch(makeRollAsync());
   };
+
   return (
     <StyledWrapper>
-      <header className="App-header">
-        <StyledImage src={logo} alt="logo" animate={{ scale: [1, 1.2, 1.2, 1, 1], rotate: [0, 0, 270, 270, 0] }} transition={spinTransitionFineTuned} />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
+      <div>{game.status}</div>
+      <div>{game.rollMessage}</div>
+      <GamePlayer player={game.player1} />
+      <GamePlayer player={game.opponent} />
+      <button type="button" onClick={handleOnClick} disabled={game.status !== 'waiting'}>
+        Attack
+      </button>
     </StyledWrapper>
   );
 };
