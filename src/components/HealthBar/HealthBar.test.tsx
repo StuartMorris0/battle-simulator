@@ -2,10 +2,10 @@ import React from 'react';
 
 import { render, screen } from 'global/utils/test-utils';
 
-import GamePlayer from '.';
+import HealthBar from '.';
 
-test('renders Player', () => {
-  render(<GamePlayer display="ltr" />);
+test('renders Bar', () => {
+  render(<HealthBar />);
   const linkElement = screen.getByText(/learn react/i);
   expect(linkElement).toBeInTheDocument();
 });

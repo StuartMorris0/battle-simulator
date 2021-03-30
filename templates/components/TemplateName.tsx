@@ -2,9 +2,9 @@ import React from 'react';
 
 import { TemplateNameWrapper } from './TemplateName.styles';
 
-declare interface ITemplateNameProps {}
+import { ITemplateNameProps } from './TemplateName.types';
 
-const TemplateName: React.FC = (props: ITemplateNameProps) => (
+const TemplateName: React.FC<ITemplateNameProps> = (props: ITemplateNameProps) => (
   <TemplateNameWrapper data-testid="TemplateName">
     <span>TemplateName Component</span>
   </TemplateNameWrapper>

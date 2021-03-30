@@ -1,12 +1,12 @@
 import React from 'react';
 
+import Dice from 'components/Dice';
+import HealthBar from 'components/HealthBar';
+
 import { GamePlayerWrapper } from './GamePlayer.styles';
+import { IGamePlayerProps } from './GamePlayer.types';
 
-declare interface IGamePlayerProps {
-  player: Player;
-}
-
-const GamePlayer: React.FC<IGamePlayerProps> = ({ player }: IGamePlayerProps) => {
+const GamePlayer: React.FC<IGamePlayerProps> = ({ player, ...rest }: IGamePlayerProps) => {
   const {
     playerName,
     dice1,
@@ -15,12 +15,12 @@ const GamePlayer: React.FC<IGamePlayerProps> = ({ player }: IGamePlayerProps) =>
     hasWon,
   } = player;
   return (
-    <GamePlayerWrapper data-testid="GamePlayer">
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    <GamePlayerWrapper player={player} {...rest} data-testid="GamePlayer" animate={{ scale: 1 }}>
       <div>name: {playerName}</div>
-      <div>dice: {dice1}</div>
-      <div>dice2: {dice2}</div>
-      <div>health.current: {current}</div>
-      <div>health.lost: {lost}</div>
+      <Dice value={dice1} />
+      <Dice value={dice2} />
+      <HealthBar current={current} lost={lost} />
       <div>hasWon: {hasWon ? 'true' : 'false'}</div>
     </GamePlayerWrapper>
   );

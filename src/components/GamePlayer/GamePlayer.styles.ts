@@ -1,7 +1,22 @@
 import { motion } from 'framer-motion';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const GamePlayerWrapper = styled.div``;
+import { IGamePlayerProps } from './GamePlayer.types';
+
+const GamePlayerWrapper = styled(motion.div)<IGamePlayerProps>`
+  display: flex;
+  justify-content: space-evenly;
+  flex-grow: 0.5;
+  align-items: center;
+  height: 100%;
+  overflow: hidden;
+
+  ${({ display }: IGamePlayerProps) =>
+    display === 'rtl' &&
+    css`
+      flex-direction: row-reverse;
+    `};
+`;
 
 const GamePlayerInfo = styled.div``;
 

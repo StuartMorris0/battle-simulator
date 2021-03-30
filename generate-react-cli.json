@@ -9,14 +9,16 @@
         "component": "templates/components/TemplateName.tsx",
         "style": "templates/components/TemplateName.styles.ts",
         "test": "templates/components/TemplateName.test.tsx",
-        "index": "templates/components/index.ts"
+        "index": "templates/components/index.ts",
+        "type": "templates/components/TemplateName.types.ts"
       },
       "path": "src/components",
       "withStyle": true,
       "withTest": true,
       "withStory": false,
       "withLazy": false,
-      "withIndex": true
+      "withIndex": true,
+      "withType": true
     },
     "page": {
       "customTemplates": {
