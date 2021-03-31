@@ -5,6 +5,10 @@ export const StyledWrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+
+  @media (min-width: 769px) {
+    height: 100vh;
+  }
 `;
 
 export const GameWrapper = styled.div`
@@ -13,6 +17,11 @@ export const GameWrapper = styled.div`
 
   @media (min-width: 769px) {
     flex-direction: row;
+    flex: 1;
+
+    & .player:not(:first-child) {
+      flex-direction: row-reverse;
+    }
   }
 `;
 
@@ -21,6 +30,10 @@ export const ButtonWrapper = styled.div`
   align-items: center;
   justify-content: center;
   margin: 8px 20px;
+
+  @media (min-width: 769px) {
+    margin: 40px 20px;
+  }
 
   & button {
     width: 100%;

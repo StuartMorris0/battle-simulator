@@ -5,7 +5,7 @@ import { IHealthBarProps } from './HealthBar.types';
 
 const HealthBar: React.FC<IHealthBarProps> = ({ current, lost }: IHealthBarProps) => (
   <>
-    <Container data-testid="Bar">
+    <Container data-testid="HealthBar">
       {lost && (
         <LostHealth
           initial={{ opacity: 0, scale: 1 }}

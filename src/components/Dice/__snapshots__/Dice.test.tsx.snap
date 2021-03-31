@@ -1,0 +1,148 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dice Component snapshot test for variant 1 1`] = `
+.c0 {
+  display: block;
+}
+
+.c0 img {
+  width: 50px;
+  height: 50px;
+}
+
+<div
+  class="c0"
+  data-testid="RolledDice"
+>
+  <img
+    alt="dice"
+    src="one.svg"
+  />
+</div>
+`;
+
+exports[`Dice Component snapshot test for variant 2 1`] = `
+.c0 {
+  display: block;
+}
+
+.c0 img {
+  width: 50px;
+  height: 50px;
+}
+
+<div
+  class="c0"
+  data-testid="RolledDice"
+>
+  <img
+    alt="dice"
+    src="two.svg"
+  />
+</div>
+`;
+
+exports[`Dice Component snapshot test for variant 3 1`] = `
+.c0 {
+  display: block;
+}
+
+.c0 img {
+  width: 50px;
+  height: 50px;
+}
+
+<div
+  class="c0"
+  data-testid="RolledDice"
+>
+  <img
+    alt="dice"
+    src="three.svg"
+  />
+</div>
+`;
+
+exports[`Dice Component snapshot test for variant 4 1`] = `
+.c0 {
+  display: block;
+}
+
+.c0 img {
+  width: 50px;
+  height: 50px;
+}
+
+<div
+  class="c0"
+  data-testid="RolledDice"
+>
+  <img
+    alt="dice"
+    src="four.svg"
+  />
+</div>
+`;
+
+exports[`Dice Component snapshot test for variant 5 1`] = `
+.c0 {
+  display: block;
+}
+
+.c0 img {
+  width: 50px;
+  height: 50px;
+}
+
+<div
+  class="c0"
+  data-testid="RolledDice"
+>
+  <img
+    alt="dice"
+    src="five.svg"
+  />
+</div>
+`;
+
+exports[`Dice Component snapshot test for variant 6 1`] = `
+.c0 {
+  display: block;
+}
+
+.c0 img {
+  width: 50px;
+  height: 50px;
+}
+
+<div
+  class="c0"
+  data-testid="RolledDice"
+>
+  <img
+    alt="dice"
+    src="six.svg"
+  />
+</div>
+`;
+
+exports[`Dice Component snapshot test for variant 7 1`] = `
+.c0 {
+  display: block;
+}
+
+.c0 img {
+  width: 50px;
+  height: 50px;
+}
+
+<div
+  class="c0"
+  data-testid="RolledDice"
+>
+  <img
+    alt="dice"
+    src="blank.svg"
+  />
+</div>
+`;

@@ -1,23 +1,13 @@
 import { motion } from 'framer-motion';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-import { IGamePlayerProps } from './GamePlayer.types';
-
-export const GamePlayerWrapper = styled(motion.div)<IGamePlayerProps>`
+export const GamePlayerWrapper = styled(motion.div)`
   display: flex;
   justify-content: space-evenly;
   flex-grow: 0.5;
   align-items: center;
   height: 100%;
   overflow: hidden;
-
-  ${({ display }: IGamePlayerProps) =>
-    display === 'rtl' &&
-    css`
-      @media (min-width: 760px) {
-        flex-direction: row-reverse;
-      }
-    `};
 `;
 
 export const DiceHolder = styled.div`

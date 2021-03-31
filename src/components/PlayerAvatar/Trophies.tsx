@@ -12,7 +12,7 @@ const Trophies = (): JSX.Element => {
   const opacity = [0, 0.2, 0.5, 1, 0.5, 0];
 
   return (
-    <StyledWrapper>
+    <StyledWrapper data-testid="trophies">
       <motion.div
         animate={{
           scale,
@@ -24,7 +24,7 @@ const Trophies = (): JSX.Element => {
           duration: 2,
           ease: 'easeInOut',
           times: [0, 0.25, 0.5, 0.75, 1],
-          loop: Infinity,
+          repeat: Infinity,
           repeatDelay: 1,
         }}
       >
@@ -43,7 +43,7 @@ const Trophies = (): JSX.Element => {
           duration: 2,
           ease: 'easeInOut',
           times: [0, 0.25, 0.5, 0.75, 1],
-          loop: Infinity,
+          repeat: Infinity,
           repeatDelay: 1,
         }}
       >
@@ -61,7 +61,7 @@ const Trophies = (): JSX.Element => {
           duration: 2,
           ease: 'easeInOut',
           times: [0, 0.25, 0.5, 0.75, 1],
-          loop: Infinity,
+          repeat: Infinity,
           repeatDelay: 1,
         }}
       >

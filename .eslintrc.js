@@ -1,7 +1,6 @@
 module.exports = {
   extends: [
     'eslint:recommended',
-    'airbnb-typescript',
     'airbnb/hooks',
     'plugin:@typescript-eslint/recommended',
     'plugin:jest/recommended',
@@ -12,7 +11,7 @@ module.exports = {
     'plugin:import/warnings',
     'plugin:import/typescript',
   ],
-  plugins: ['react', '@typescript-eslint', 'jest', 'eslint-plugin-import'],
+  plugins: ['react', '@typescript-eslint', 'jest', 'eslint-plugin-import', 'testing-library'],
   env: {
     browser: true,
     es6: true,

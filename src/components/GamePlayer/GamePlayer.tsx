@@ -7,7 +7,7 @@ import PlayerAvatar from 'components/PlayerAvatar';
 import { DiceHolder, GamePlayerWrapper } from './GamePlayer.styles';
 import { IGamePlayerProps } from './GamePlayer.types';
 
-const GamePlayer: React.FC<IGamePlayerProps> = ({ player, ...rest }: IGamePlayerProps) => {
+const GamePlayer: React.FC<IGamePlayerProps> = ({ player, isRolling }: IGamePlayerProps) => {
   const {
     playerName,
     dice1,
@@ -16,12 +16,11 @@ const GamePlayer: React.FC<IGamePlayerProps> = ({ player, ...rest }: IGamePlayer
     hasWon,
   } = player;
   return (
-    // eslint-disable-next-line react/jsx-props-no-spreading
-    <GamePlayerWrapper player={player} {...rest} data-testid="GamePlayer" animate={{ scale: 1 }}>
+    <GamePlayerWrapper data-testid="GamePlayer" animate={{ scale: 1 }} className="player">
       <PlayerAvatar name={playerName} hasWon={hasWon} />
       <DiceHolder>
-        <Dice value={dice1} />
-        <Dice value={dice2} />
+        <Dice value={dice1} isRolling={isRolling} />
+        <Dice value={dice2} isRolling={isRolling} />
       </DiceHolder>
       <HealthBar current={current} lost={lost} />
     </GamePlayerWrapper>

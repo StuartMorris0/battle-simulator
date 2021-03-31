@@ -7,7 +7,6 @@ import one from 'assets/icons/dice/one.svg';
 import six from 'assets/icons/dice/six.svg';
 import three from 'assets/icons/dice/three.svg';
 import two from 'assets/icons/dice/two.svg';
-import { useAppSelector } from 'hooks/storeHooks';
 
 import { Rolled, RollingDice } from './Dice.styles';
 import { IDiceProps } from './Dice.types';
@@ -31,13 +30,11 @@ const getImageSource = (value: number) => {
   }
 };
 
-const Dice: React.FC<IDiceProps> = ({ value }: IDiceProps) => {
-  const gameStatus = useAppSelector((state) => state.game.status);
-  const isRolling = gameStatus === 'rolling';
-
+const Dice: React.FC<IDiceProps> = ({ value, isRolling }: IDiceProps) => {
   if (isRolling) {
     return (
       <RollingDice
+        data-testid="RollingDice"
         animate={{ scale: [1, 0.75, 0.5, 0.5, 1], rotate: [0, 0, 270, 270, 0], borderRadius: ['20%', '20%', '50%', '50%', '20%'] }}
         transition={{ repeat: Infinity, ease: 'linear', duration: 1.5 }}
       >
@@ -49,8 +46,8 @@ const Dice: React.FC<IDiceProps> = ({ value }: IDiceProps) => {
   if (value !== undefined) {
     const imageSrc = getImageSource(value);
     return (
-      <Rolled animate={{}} whileHover={{ scale: 1.2 }}>
-        <img src={imageSrc} alt="One" />
+      <Rolled data-testid="RolledDice" animate={{}} whileHover={{ scale: 1.2 }}>
+        <img src={imageSrc} alt="dice" />
       </Rolled>
     );
   }

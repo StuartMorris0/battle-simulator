@@ -1,4 +1,4 @@
 export interface IGamePlayerProps {
   player: Player;
-  display: 'ltr' | 'rtl';
+  isRolling: boolean;
 }

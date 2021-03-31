@@ -1,4 +1,14 @@
-# React Typescript Template
+# Battle Simulator
+
+To setup this project, pull and run `yarn install` then run `yarn start` to build locally.
+
+Alternatively this is hosted on netlify: https://lucid-hypatia-1858f7.netlify.app/
+
+In order to make the components more reusable, I've stripped back the selectors to the top level. However, this does mean on occassion you might pass a prop two levels deep. IMO, this is an OK approach, any further you'd want the state selector lower down the chain.
+
+---
+
+#### React Typescript Template
 
 An **opinionated** Typescript Create React App (CRA) template. This template was designed to have a good starting point for web app development in Typescript with React.
 

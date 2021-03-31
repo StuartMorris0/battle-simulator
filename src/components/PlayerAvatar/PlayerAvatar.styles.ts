@@ -15,4 +15,8 @@ export const PlayerAvatarWrapper = styled(motion.div)`
 export const AvatarImg = styled(motion.img)`
   width: 50px;
   margin: 12px;
+
+  @media (min-width: 769px) {
+    width: 80px;
+  }
 `;

@@ -1,3 +1,4 @@
-export declare interface IDiceProps {
+export interface IDiceProps {
   value: number | undefined;
+  isRolling: boolean;
 }

@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { useAppSelector } from 'hooks/storeHooks';
-
 import { RollMessageSpan, RollMessageWrapper } from './RollMessage.styles';
+import { IRollMessageProps } from './RollMessage.types';
 
 const generateWinnerMessage = (playerWon: boolean) => (
   <RollMessageSpan playerHasWon={playerWon} opponentWon={!playerWon} animate={{ rotate: [0, 45, 0, -45, 0] }} transition={{ ease: 'linear', duration: 10, repeat: Infinity }}>
@@ -23,12 +22,8 @@ const generateMessage = (rollMessage: string, playerWon: boolean, opponentWon: b
   return generateRollMessage(rollMessage);
 };
 
-const RollMessage: React.FC = () => {
-  const { rollMessage, player1, opponent } = useAppSelector((state) => state.game);
-  const playerHasWon = player1.hasWon;
-  const opponentHasWon = opponent.hasWon;
-
-  return <RollMessageWrapper>{generateMessage(rollMessage, playerHasWon, opponentHasWon)}</RollMessageWrapper>;
+const RollMessage: React.FC<IRollMessageProps> = ({ message, playerHasWon, opponentHasWon }: IRollMessageProps) => {
+  return <RollMessageWrapper>{generateMessage(message, playerHasWon, opponentHasWon)}</RollMessageWrapper>;
 };
 
 export default RollMessage;

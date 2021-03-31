@@ -36,9 +36,9 @@ const App: React.FC = () => {
         BATTLE SIMULATOR
       </TitleWrapper>
       <GameWrapper>
-        <GamePlayer player={game.player1} display="ltr" />
-        <RollMessage />
-        <GamePlayer player={game.opponent} display="rtl" />
+        <GamePlayer player={game.player1} isRolling={game.status === 'rolling'} />
+        <RollMessage message={game.rollMessage} playerHasWon={game.player1.hasWon} opponentHasWon={game.opponent.hasWon} />
+        <GamePlayer player={game.opponent} isRolling={game.status === 'rolling'} />
       </GameWrapper>
       <ButtonWrapper>
         {game.status === 'complete' ? (
